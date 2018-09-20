@@ -936,6 +936,7 @@ class TTFontFile
 			if ($ver_maj < 1 || $ver_maj > 4) {
 				throw new \Mpdf\MpdfException('Unknown post table version ' . $ver_maj);
 			}
+			$this->skip(2);
 		} else {
 			$this->skip(4);
 		}
@@ -965,7 +966,7 @@ class TTFontFile
 			if ($ver_maj != 1) {
 				throw new \Mpdf\MpdfException('Unknown hhea table version ' . $ver_maj);
 			}
-			$this->skip(28);
+			$this->skip(30);
 		} else {
 			$this->skip(32);
 		}
@@ -991,6 +992,7 @@ class TTFontFile
 			if ($ver_maj != 1) {
 				throw new \Mpdf\MpdfException('Unknown maxp table version ' . $ver_maj);
 			}
+			$this->skip(2);
 		} else {
 			$this->skip(4);
 		}
